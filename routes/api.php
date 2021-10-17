@@ -17,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//Creating Tasks Api Resource Controller
+Route::resource('tasks', 'TasksController', [
+    'except' => ['edit', 'create','show']
+]);
+//Creating Projects api Tasks Resource Controller
+Route::resource('projects', 'ProjectsController', [
+    'except' => ['edit', 'create','show']
+]);
